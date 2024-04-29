@@ -1,6 +1,6 @@
 <template>
   <div class="shop">
-    <h1>SACA shop</h1>
+    <h1 class="is-size-1 has-text-centered">SACA shop</h1>
   </div>
 
   <div class="columns is-multiline">

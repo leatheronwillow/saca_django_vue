@@ -3,7 +3,11 @@
     <nav class="navbar is-dark">
       <div class="navbar-brand">
         <router-link to="/" class="navbar-item">
-          <strong>SACA</strong>
+          <img
+            class="full-height-logo"
+            src="./assets/SACA-logo-1.jpg"
+            alt="SACA Logo"
+          />
         </router-link>
         <a
           class="navbar-burger"

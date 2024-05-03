@@ -1,9 +1,12 @@
+from django.db.models import Q
 from django.http import Http404
+
 from rest_framework.views import APIView
 from rest_framework.response import Response
+from rest_framework.decorators import api_view
 
-from .models import Product
-from .serialisers import ProductSerialiser
+from .models import Product, Category
+from .serialisers import ProductSerialiser, CategorySerialiser
 
 # Create your views here.
 
@@ -24,3 +27,26 @@ class ProductDetail(APIView):
         product = self.get_object(category_slug, product_slug)
         serialiser = ProductSerialiser(product)
         return Response(serialiser.data)
+    
+class CategoryDetail(APIView):
+    def get_object(self, category_slug):
+        try:
+            return Category.objects.get(slug=category_slug)
+        except Product.DoesNotExist:
+            return Http404
+    
+    def get(self, request, category_slug, format=None):
+        category = self.get_object(category_slug)
+        serialiser = CategorySerialiser(category)
+        return Response(serialiser.data)
+
+@api_view(['POST'])
+def search(request):
+    query = request.data.get('query', '')
+
+    if query:
+        products = Product.objects.filter(Q(name__icontains=query) | Q(description__icontains=query))
+        serialiser = ProductSerialiser(products, many=True)
+        return Response(serialiser.data)
+    else:
+        return Response({"products": []})

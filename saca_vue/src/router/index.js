@@ -3,6 +3,7 @@ import HomeView from "../views/HomeView.vue";
 import ShopView from "../views/ShopView.vue";
 import ProductView from "../views/ProductView.vue";
 import CategoryView from "../views/CategoryView.vue";
+import SearchView from "../views/SearchView.vue";
 
 const routes = [
   {
@@ -23,6 +24,11 @@ const routes = [
     path: "/shop",
     name: "shop",
     component: ShopView,
+  },
+  {
+    path: "/search",
+    name: "search",
+    component: SearchView,
   },
   {
     path: "/shop/:category_slug/:product_slug",

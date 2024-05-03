@@ -26,6 +26,30 @@
         id="navbar-menu"
         v-bind:class="{ 'is-active': showMobileMenu }"
       >
+        <div class="navbar-start">
+          <div class="navbar-item">
+            <form action="/search" method="get">
+              <div class="field has-addons">
+                <div class="control">
+                  <input
+                    type="text"
+                    class="input"
+                    placeholder="Search"
+                    name="query"
+                  />
+                </div>
+
+                <div class="control">
+                  <button class="button is-success">
+                    <span class="icon">
+                      <i class="fas fa-search"></i>
+                    </span>
+                  </button>
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
         <div class="navbar-end">
           <router-link to="/about" class="navbar-item">About</router-link>
           <router-link to="/fixtures" class="navbar-item">Fixtures</router-link>

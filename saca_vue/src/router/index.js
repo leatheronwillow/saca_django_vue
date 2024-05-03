@@ -2,6 +2,7 @@ import { createRouter, createWebHistory } from "vue-router";
 import HomeView from "../views/HomeView.vue";
 import ShopView from "../views/ShopView.vue";
 import ProductView from "../views/ProductView.vue";
+import CategoryView from "../views/CategoryView.vue";
 
 const routes = [
   {
@@ -24,9 +25,14 @@ const routes = [
     component: ShopView,
   },
   {
-    path: "/shop/:category_slug/:product_slug/",
+    path: "/shop/:category_slug/:product_slug",
     name: "product",
     component: ProductView,
+  },
+  {
+    path: "/shop/:category_slug",
+    name: "category",
+    component: CategoryView,
   },
 ];
 

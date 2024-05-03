@@ -30,8 +30,31 @@
           <router-link to="/about" class="navbar-item">About</router-link>
           <router-link to="/fixtures" class="navbar-item">Fixtures</router-link>
           <router-link to="/players" class="navbar-item">Players</router-link>
-          <router-link to="/shop" class="navbar-item">Shop</router-link>
-
+          <div class="dropdown is-hoverable navbar-item">
+            <div class="dropdown-trigger is-hoverable navbar-item">
+              <router-link
+                to="/shop"
+                class="navbar-item"
+                aria-haspopup="true"
+                aria-controls="dropdown-menu"
+              >
+                <span>Shop</span>
+                <span class="icon">
+                  <i class="fas fa-angle-down" aria-hidden="true"></i>
+                </span>
+              </router-link>
+            </div>
+            <div class="dropdown-menu" id="dropdown-menu" role="menu">
+              <div class="dropdown-content">
+                <router-link to="/shop/training" class="dropdown-item"
+                  >Training</router-link
+                >
+                <router-link to="/shop/match" class="dropdown-item"
+                  >Match</router-link
+                >
+              </div>
+            </div>
+          </div>
           <div class="navbar-item">
             <div class="buttons">
               <router-link to="/login" class="button is-light">

@@ -7,6 +7,8 @@ import CategoryView from "../views/CategoryView.vue";
 import SearchView from "../views/SearchView.vue";
 import CartView from "../views/CartView.vue";
 import SignUpView from "../views/SignUpView.vue";
+import LoginView from "../views/LoginView.vue";
+import MyAccountView from "../views/MyAccountView.vue";
 
 const routes = [
   {
@@ -52,6 +54,19 @@ const routes = [
     path: "/shop/:category_slug",
     name: "category",
     component: CategoryView,
+  },
+  {
+    path: "/login",
+    name: "login",
+    component: LoginView,
+  },
+  {
+    path: "/myaccount",
+    name: "myaccount",
+    component: MyAccountView,
+    meta: {
+      requireLogin: true,
+    },
   },
 ];
 
